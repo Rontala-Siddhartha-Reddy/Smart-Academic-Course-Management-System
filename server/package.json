@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@vitalets/google-translate-api": "^9.2.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "edge-tts": "^1.0.1",
+    "express": "^5.2.1",
+    "google-translate-api-x": "^10.7.3",
+    "mongoose": "^9.7.0",
+    "msedge-tts": "^2.0.5",
+    "node-edge-tts": "^1.2.10"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

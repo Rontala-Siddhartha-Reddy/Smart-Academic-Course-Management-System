@@ -1,0 +1,5 @@
+{
+  "watch": ["server.js", "routes", "models"],
+  "ext": "js,json",
+  "ignore": ["tts-audio/*", "tts-audio/**/*", "node_modules/*"]
+}
