@@ -1,0 +1,695 @@
+.ai-lecture-page {
+  width: 100%;
+  padding: 24px;
+  background: #f4f7fb;
+  min-height: 100vh;
+  box-sizing: border-box;
+  border-radius: 18px;
+}
+
+.ai-lecture-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.ai-small-label {
+  margin: 0 0 6px;
+  color: #2563eb;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+}
+
+.ai-lecture-top h2 {
+  margin: 0;
+  font-size: 28px;
+  color: #111827;
+}
+
+.ai-lecture-top p {
+  margin: 6px 0 0;
+  color: #6b7280;
+}
+
+/* ===== TOP CONTROLS ===== */
+
+.language-controls {
+  display: flex;
+  gap: 14px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.language-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+}
+
+.lecture-select-box {
+  min-width: 230px;
+}
+
+.language-box label {
+  font-weight: 700;
+  color: #374151;
+}
+
+.language-box select {
+  height: 42px;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #ffffff;
+  color: #111827;
+  outline: none;
+}
+
+.language-box select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* ===== MAIN AI VIDEO BOARD ===== */
+
+.ai-video-screen {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 560px;
+  max-height: 560px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #111827, #1f2937);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.25);
+  transform-origin: top center;
+  transition: 0.3s ease;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ===== FULLSCREEN ICON INSIDE VIDEO BOX ===== */
+
+.ai-fullscreen-icon-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  z-index: 30;
+  transition: 0.2s ease;
+}
+
+.ai-fullscreen-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: scale(1.05);
+}
+
+/* hide old fullscreen text button if old JSX remains */
+.ai-fullscreen-btn {
+  display: none !important;
+}
+
+/* ===== FULLSCREEN MODE ONLY FOR VIDEO BOX ===== */
+
+.ai-video-screen:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  border-radius: 0;
+  padding: 24px;
+  margin: 0;
+  background: linear-gradient(135deg, #111827, #1f2937);
+}
+
+.ai-video-screen:fullscreen .ai-writing-board {
+  height: calc(100vh - 170px);
+  min-height: calc(100vh - 170px);
+  max-height: calc(100vh - 170px);
+}
+
+.ai-video-screen:fullscreen .ai-teacher-area {
+  padding-right: 60px;
+}
+
+/* ===== TEACHER AREA ===== */
+
+.ai-teacher-area {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  padding-right: 54px;
+}
+
+.ai-avatar {
+  width: 60px;
+  min-width: 60px;
+  height: 60px;
+  background: #2563eb;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  font-size: 20px;
+  box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.25);
+}
+
+.ai-teacher-area h3 {
+  margin: 0;
+  font-size: 22px;
+  word-break: break-word;
+}
+
+.ai-teacher-area p {
+  margin: 5px 0 0;
+  color: #d1d5db;
+}
+
+/* ===== WRITING BOARD ===== */
+
+.ai-writing-board {
+  height: 390px;
+  min-height: 390px;
+  max-height: 390px;
+  background: #030712;
+  color: #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #374151;
+  overflow-y: auto;
+  overflow-x: hidden !important;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  scroll-behavior: smooth;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1.8;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.ai-board-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  margin: 0;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1.8;
+  color: #e5e7eb;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.ai-board-text span {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.ai-writing-board pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  font-family: "Georgia", "Times New Roman", serif;
+  margin: 0;
+}
+
+.ai-start-hint {
+  color: #9ca3af;
+  font-size: 18px;
+}
+
+.cursor {
+  font-size: 26px;
+  color: #ffffff;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ===== LOADING ===== */
+
+.ai-loading-box {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-loading-box p {
+  color: #d1d5db;
+}
+
+.ai-loader {
+  width: 42px;
+  height: 42px;
+  border: 4px solid #4b5563;
+  border-top-color: #60a5fa;
+  border-radius: 50%;
+  animation: aiSpin 1s linear infinite;
+  margin-bottom: 14px;
+}
+
+@keyframes aiSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ai-audio-status {
+  position: absolute;
+  right: 20px;
+  bottom: 14px;
+  color: #93c5fd;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ===== FORMULA DISPLAY FINAL FIX ===== */
+
+.ai-formula-display {
+  display: inline-flex !important;
+  align-items: center;
+  vertical-align: middle !important;
+  margin-left: 8px !important;
+  margin-right: 8px !important;
+  padding: 0 2px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  white-space: nowrap !important;
+}
+
+.ai-normal-formula-block {
+  display: inline-flex !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin-left: 8px !important;
+  margin-right: 8px !important;
+  white-space: nowrap !important;
+}
+
+.ai-long-formula-display {
+  display: block !important;
+  width: 100%;
+  max-width: 100%;
+  margin: 10px 0 !important;
+  overflow-x: hidden !important;
+  white-space: normal !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.ai-formula-line {
+  display: block !important;
+  width: 100%;
+  max-width: 100%;
+  margin: 6px 0 !important;
+  padding: 0;
+  overflow-x: hidden !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.ai-readonly-inline-math {
+  display: inline-block !important;
+  width: auto !important;
+  min-width: 18px !important;
+  max-width: 100% !important;
+  margin: 0 4px !important;
+  padding: 0 4px !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+  font-size: 25px !important;
+  line-height: 1.3 !important;
+  vertical-align: middle !important;
+  overflow: hidden !important;
+}
+
+.ai-readonly-inline-math::part(container) {
+  max-width: 100% !important;
+  overflow: hidden !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.ai-readonly-inline-math::part(content) {
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  font-size: inherit !important;
+}
+
+.ai-readonly-inline-math * {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+.ai-readonly-inline-math::part(menu-toggle),
+.ai-readonly-inline-math::part(virtual-keyboard-toggle) {
+  display: none !important;
+}
+
+/* Fullscreen formula behavior */
+.ai-video-screen:fullscreen .ai-formula-display {
+  display: inline-flex !important;
+  white-space: nowrap !important;
+  margin-left: 8px !important;
+  margin-right: 8px !important;
+}
+
+.ai-video-screen:fullscreen .ai-normal-formula-block {
+  display: inline-flex !important;
+  width: auto !important;
+  white-space: nowrap !important;
+}
+
+.ai-video-screen:fullscreen .ai-long-formula-display {
+  display: inline !important;
+  width: auto !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+.ai-video-screen:fullscreen .ai-formula-line {
+  display: inline-flex !important;
+  width: auto !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  margin-left: 8px !important;
+  margin-right: 8px !important;
+}
+
+.ai-video-screen:fullscreen .ai-readonly-inline-math {
+  font-size: 26px !important;
+  max-width: none !important;
+  overflow: visible !important;
+}
+
+.ai-video-screen:fullscreen .ai-readonly-inline-math::part(container),
+.ai-video-screen:fullscreen .ai-readonly-inline-math::part(content) {
+  max-width: none !important;
+  overflow: visible !important;
+}
+/* ===== IMAGE DISPLAY WITHOUT BACKGROUND BOX ===== */
+
+.ai-lecture-image-block {
+  display: block;
+  margin: 18px 0;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.ai-lecture-image {
+  display: block;
+  max-width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 auto;
+}
+
+/* ===== SCROLLBARS ===== */
+
+.ai-writing-board::-webkit-scrollbar,
+.teacher-explanation-preview::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.ai-writing-board::-webkit-scrollbar-track,
+.teacher-explanation-preview::-webkit-scrollbar-track {
+  background: rgba(31, 41, 55, 0.8);
+  border-radius: 999px;
+}
+
+.ai-writing-board::-webkit-scrollbar-thumb,
+.teacher-explanation-preview::-webkit-scrollbar-thumb {
+  background: #60a5fa;
+  border-radius: 999px;
+}
+
+/* ===== MAIN BUTTON CONTROLS ===== */
+
+.main-controls {
+  max-width: 1000px;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.main-controls button {
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 11px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.main-controls button:hover {
+  background: #1d4ed8;
+}
+
+.main-controls button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ===== SETTINGS ===== */
+
+.settings-controls {
+  max-width: 1000px;
+  margin: 24px auto 0;
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.settings-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.settings-controls span {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.settings-controls input {
+  width: 100%;
+}
+
+/* ===== TEACHER / STAFF EXPLANATION PREVIEW ===== */
+
+.teacher-explanation-preview {
+  max-width: 1000px;
+  max-height: 220px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  margin: 24px auto 0;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  padding: 18px;
+  border-radius: 14px;
+}
+
+.teacher-explanation-preview h4 {
+  margin: 0 0 10px;
+  color: #9a3412;
+}
+
+.teacher-explanation-preview p {
+  margin: 0;
+  color: #7c2d12;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* ===== SECTION PROGRESS ===== */
+
+.section-progress {
+  text-align: center;
+  margin-top: 16px;
+  color: #4b5563;
+  font-weight: 700;
+}
+
+.ai-lecture-empty {
+  background: #f9fafb;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.ai-lecture-empty h2 {
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.ai-lecture-empty p {
+  color: #6b7280;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+  .ai-lecture-page {
+    padding: 14px;
+  }
+
+  .ai-lecture-top {
+    flex-direction: column;
+  }
+
+  .language-controls {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .language-box,
+  .lecture-select-box {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .ai-video-screen {
+    height: 480px;
+    max-height: 480px;
+    padding: 16px;
+  }
+
+  .ai-fullscreen-icon-btn {
+    top: 12px;
+    right: 12px;
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+
+  .ai-teacher-area {
+    padding-right: 46px;
+  }
+
+  .ai-writing-board {
+    height: 320px;
+    min-height: 320px;
+    max-height: 320px;
+    font-size: 18px;
+    padding: 18px;
+  }
+
+  .ai-board-text {
+    font-size: 18px;
+  }
+
+  .ai-formula-display {
+    max-width: 100%;
+    margin: 0 2px !important;
+    padding: 0 !important;
+  }
+
+  .ai-normal-formula-block,
+  .ai-long-formula-display,
+  .ai-formula-line {
+    display: block !important;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ai-readonly-inline-math {
+    font-size: 20px !important;
+  }
+
+  .main-controls button {
+    padding: 10px 14px;
+  }
+
+  .ai-video-screen:fullscreen {
+    height: 100vh;
+    max-height: 100vh;
+    padding: 16px;
+  }
+
+  .ai-video-screen:fullscreen .ai-writing-board {
+    height: calc(100vh - 145px);
+    min-height: calc(100vh - 145px);
+    max-height: calc(100vh - 145px);
+  }
+
+  .ai-video-screen:fullscreen .ai-readonly-inline-math {
+    font-size: 22px !important;
+  }
+
+  .teacher-explanation-preview {
+    max-height: 180px;
+  }
+}

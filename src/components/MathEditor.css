@@ -1,0 +1,452 @@
+/* ===== MATHLIVE VIRTUAL KEYBOARD HIDE ===== */
+
+math-virtual-keyboard,
+.ML__keyboard,
+.mathlive-virtual-keyboard {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+}
+
+math-field::part(virtual-keyboard-toggle),
+math-field::part(menu-toggle) {
+  display: none !important;
+}
+
+/* ===== MATH EDITOR BOX ===== */
+
+.math-editor-box {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 8px;
+  margin-bottom: 18px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 16px;
+  padding: 12px;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+.math-editor-label,
+.math-editor-box label {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #f97316;
+  font-size: 14px;
+}
+
+/* ===== MIXED TEXT + MATH EDITOR ===== */
+
+.mixed-text-math-editor {
+  width: 100%;
+  min-height: 190px;
+  max-height: 390px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #d0d7de;
+  background: #ffffff;
+  font-size: 17px;
+  line-height: 1.8;
+  font-family: "Segoe UI", Arial, sans-serif;
+  box-sizing: border-box;
+  white-space: pre-wrap;
+  word-break: normal;
+  overflow-wrap: break-word;
+  outline: none;
+}
+
+.mixed-text-math-editor:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.mixed-text-math-editor:empty::before {
+  content: attr(data-placeholder);
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+/* ===== INLINE EQUATION WRAPPER INSIDE EDITOR ===== */
+
+.math-equation-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+  overflow: visible;
+  margin: 4px 5px;
+  padding: 4px 6px;
+  border: 1px solid #fed7aa;
+  border-radius: 8px;
+  background: #fff7ed;
+  vertical-align: middle;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* ===== MATHLIVE FIELD INSIDE EDITOR ===== */
+
+.inline-math-field {
+  display: inline-block;
+  min-width: 90px;
+  max-width: 100%;
+  min-height: 42px;
+  padding: 6px 8px;
+  font-size: 20px;
+  line-height: 1.4;
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  vertical-align: middle;
+  box-sizing: border-box;
+  overflow: visible !important;
+  pointer-events: auto !important;
+  user-select: text !important;
+  color: #111827;
+}
+
+.inline-math-field:focus,
+.inline-math-field:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  outline: none;
+}
+
+.inline-math-field::part(container) {
+  min-height: 38px;
+  border: none;
+  background: #ffffff;
+  box-shadow: none;
+  align-items: center;
+  overflow: visible !important;
+}
+
+.inline-math-field::part(content) {
+  color: #111827;
+  font-size: 20px;
+  line-height: 1.4;
+  overflow: visible !important;
+  min-height: 32px;
+}
+
+/* MathLive editable placeholder / blank box visibility */
+.inline-math-field::part(prompt) {
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px dashed #2563eb;
+  border-radius: 3px;
+  min-width: 14px;
+  min-height: 16px;
+}
+
+/* Extra compatibility for MathLive placeholder classes */
+.inline-math-field .ML__prompt,
+.inline-math-field .ML__placeholder {
+  color: #2563eb !important;
+  background: rgba(37, 99, 235, 0.08) !important;
+  border: 1px dashed #2563eb !important;
+  border-radius: 3px !important;
+  min-width: 14px !important;
+  min-height: 16px !important;
+}
+
+/* Prevent fraction/root/subscript clipping */
+.inline-math-field *,
+.inline-math-field::part(content),
+.inline-math-field::part(container) {
+  overflow: visible !important;
+}
+
+/* ===== EQUATION ACTION BUTTONS ===== */
+
+.equation-continue-btn,
+.equation-delete-btn {
+  position: relative;
+  z-index: 999;
+  pointer-events: auto !important;
+  user-select: none;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 5px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.equation-continue-btn {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.equation-continue-btn:hover {
+  background: #1d4ed8;
+}
+
+.equation-delete-btn {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.equation-delete-btn:hover {
+  background: #b91c1c;
+}
+
+/* ===== INSERTED IMAGE INSIDE EDITOR ===== */
+
+.image-insert-wrapper {
+  display: block;
+  margin: 14px 0;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  background: #f9fafb;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.editor-inserted-image {
+  display: block;
+  max-width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.image-explanation-input {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 15px;
+  background: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.image-explanation-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.image-action-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.image-continue-btn,
+.image-delete-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.image-continue-btn {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.image-continue-btn:hover {
+  background: #1d4ed8;
+}
+
+.image-delete-btn {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.image-delete-btn:hover {
+  background: #b91c1c;
+}
+
+/* ===== TOPIC VIEW NORMAL TEXT DISPLAY ===== */
+
+.normal-text-display,
+.mixed-view-display {
+  width: 100%;
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-height: 1.8;
+  color: #111827;
+}
+
+/* ===== KATEX READONLY DISPLAY FIX ===== */
+
+.readonly-katex-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 5px;
+  max-width: 100%;
+  overflow: visible !important;
+  color: #111827;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+/* Important: prevent parent wrapping rules from breaking KaTeX */
+.readonly-katex-wrapper *,
+.readonly-katex-wrapper .katex,
+.readonly-katex-wrapper .katex *,
+.readonly-katex-wrapper .katex-html,
+.readonly-katex-wrapper .base,
+.readonly-katex-wrapper .strut,
+.readonly-katex-wrapper .mord,
+.readonly-katex-wrapper .mopen,
+.readonly-katex-wrapper .mclose,
+.readonly-katex-wrapper .mrel,
+.readonly-katex-wrapper .mbin,
+.readonly-katex-wrapper .mop,
+.readonly-katex-wrapper .mpunct,
+.readonly-katex-wrapper .mspace,
+.readonly-katex-wrapper .mtable,
+.readonly-katex-wrapper .arraycolsep {
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+.readonly-katex-wrapper .katex {
+  font-size: 1.05em;
+  line-height: 1.35;
+}
+
+.readonly-katex-large {
+  display: inline-block;
+  margin: 6px 8px;
+  vertical-align: middle;
+  overflow: visible !important;
+}
+
+.readonly-katex-large .katex {
+  font-size: 1.06em;
+  line-height: 1.4;
+}
+
+/* Keep KaTeX display output compact */
+.readonly-katex-wrapper .katex-display {
+  display: inline-block !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+/* Matrix/table protection */
+.readonly-katex-wrapper .mtable {
+  display: inline-table !important;
+  table-layout: auto !important;
+}
+
+.readonly-katex-wrapper .col-align-c,
+.readonly-katex-wrapper .col-align-l,
+.readonly-katex-wrapper .col-align-r {
+  white-space: nowrap !important;
+}
+
+/* ===== DISPLAY INSERTED IMAGE SUPPORT ===== */
+
+.display-inserted-image-block {
+  display: block;
+  margin: 18px 0;
+  padding: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #f8fafc;
+  box-sizing: border-box;
+}
+
+.display-inserted-image {
+  display: block;
+  max-width: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  padding: 8px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.display-image-explanation {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+.display-image-explanation h4 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: #1f2937;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 900px) {
+  .mixed-text-math-editor {
+    min-height: 170px;
+    max-height: 340px;
+    font-size: 16px;
+  }
+
+  .math-equation-wrapper {
+    align-items: center;
+    margin: 5px 4px;
+    padding: 5px 6px;
+    gap: 3px;
+  }
+
+  .inline-math-field {
+    min-width: 80px;
+    font-size: 18px;
+    line-height: 1.3;
+    min-height: 38px;
+    max-height: none;
+    padding: 5px 7px;
+  }
+
+  .inline-math-field::part(content) {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .image-action-row {
+    flex-direction: column;
+  }
+
+  .image-continue-btn,
+  .image-delete-btn {
+    width: 100%;
+  }
+
+  .readonly-katex-wrapper .katex {
+    font-size: 1em;
+  }
+
+  .readonly-katex-large .katex {
+    font-size: 1.02em;
+  }
+}

@@ -1,0 +1,463 @@
+/* =========================================================
+   SMART LIST VIEW CSS
+   Used for Subject / Chapter / Topic card + table views
+   ========================================================= */
+
+/* ===== TOOLBAR ===== */
+
+.list-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin: 20px 0 24px;
+}
+
+.list-search-box {
+  flex: 1;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+  border: 1px solid #fed7aa;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.list-search-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  background: transparent;
+  color: #111827;
+}
+
+.list-search-box input::placeholder {
+  color: #9ca3af;
+}
+
+.toolbar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f97316;
+}
+
+/* ===== VIEW TOGGLE BUTTONS ===== */
+
+.view-toggle-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 16px;
+  background: #fff7ed;
+  border: 1px solid #ffedd5;
+  flex-shrink: 0;
+}
+
+.view-toggle-box button {
+  width: 42px;
+  height: 38px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: #9a3412;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-toggle-box button:hover {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+.view-toggle-box button.active {
+  background: #f97316;
+  color: #ffffff;
+}
+
+.view-toggle-box button svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* =========================================================
+   CARD VIEW COMMON FIX
+   ========================================================= */
+
+.subject-grid,
+.chapter-grid,
+.topic-grid,
+.chapter-page-grid,
+.topic-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+  max-height: 520px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 6px;
+}
+
+/* Main smart card */
+.subject-card.smart-card-style {
+  min-height: 175px;
+  padding: 0 !important;
+  overflow: hidden;
+  position: relative;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid #fed7aa;
+  border-radius: 20px;
+  background: #ffffff;
+}
+
+.subject-card.smart-card-style:hover {
+  background: #ffffff;
+  border-color: #f97316;
+}
+
+/* Main clickable part of card */
+.card-main-click {
+  flex: 1;
+  width: 100%;
+  min-height: 120px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-main-click:hover {
+  background: #fff7ed;
+}
+
+/* Subject/Chapter/Topic icon */
+.subject-card.smart-card-style .subject-icon {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  margin: 0 0 16px 0;
+  background: #f97316;
+  color: #ffffff;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+/* Subject/Chapter/Topic name */
+.card-main-click h3 {
+  margin: 0 0 8px;
+  color: #111827;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.3;
+  word-break: break-word;
+  text-align: left;
+}
+
+/* Count / chapter text */
+.card-main-click p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* Bottom action row */
+.card-action-row {
+  min-height: 58px;
+  width: 100%;
+  padding: 10px 14px;
+  border-top: 1px solid #fed7aa;
+  background: #fff7ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 0;
+  position: relative;
+  z-index: 20;
+}
+
+/* Action buttons */
+.card-action-row button,
+.table-action-row button {
+  width: 36px;
+  height: 34px;
+  border: none;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #9a3412;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.card-action-row button:hover,
+.table-action-row button:hover {
+  background: #ffedd5;
+  color: #f97316;
+}
+
+.card-action-row button.delete,
+.table-action-row button.delete {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.card-action-row button.delete:hover,
+.table-action-row button.delete:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.card-action-row button svg,
+.table-action-row button svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================================================
+   CHAPTER CARD SPECIAL ALIGNMENT
+   ========================================================= */
+
+.chapter-main-click {
+  width: 100%;
+  min-height: 120px;
+  border: none;
+  background: transparent;
+  padding: 16px;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.chapter-main-click:hover {
+  background: #fff7ed;
+}
+
+.chapter-main-click h3 {
+  margin: 0 0 8px;
+  color: #111827;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.chapter-main-click p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.chapter-main-click span {
+  color: #f97316;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   TOPIC CARD SPECIAL ALIGNMENT
+   ========================================================= */
+
+.topic-main-click {
+  width: 100%;
+  min-height: 120px;
+  border: none;
+  background: transparent;
+  padding: 16px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+}
+
+.topic-main-click:hover {
+  background: #fff7ed;
+}
+
+.topic-main-click span {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: #ffedd5;
+  color: #ea580c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.topic-main-click p {
+  margin: 0;
+  font-weight: 700;
+  color: #111827;
+  word-break: break-word;
+}
+
+.topic-main-click b {
+  color: #f97316;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* For topic page cards that use subject-card layout */
+.topic-page-grid .subject-card.smart-card-style,
+.chapter-page-grid .subject-card.smart-card-style {
+  min-height: 175px;
+}
+
+.topic-page-grid .card-main-click,
+.chapter-page-grid .card-main-click {
+  min-height: 120px;
+}
+
+/* Keep icon left aligned, not center */
+.topic-page-grid .subject-icon,
+.chapter-page-grid .subject-icon {
+  margin: 0 0 16px 0;
+}
+
+/* =========================================================
+   TABLE VIEW
+   ========================================================= */
+
+.smart-table-wrapper {
+  background: #ffffff;
+  border-radius: 22px;
+  border: 1px solid #ffedd5;
+  max-height: 520px;
+  overflow: auto;
+  box-shadow: 0 16px 34px rgba(124, 45, 18, 0.07);
+}
+
+.smart-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 650px;
+}
+
+.smart-table th {
+  background: #fff7ed;
+  color: #7c2d12;
+  font-size: 13px;
+  text-align: left;
+  padding: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.smart-table td {
+  padding: 15px 16px;
+  border-top: 1px solid #ffedd5;
+  color: #374151;
+  font-size: 14px;
+}
+
+.table-action-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0;
+  position: relative;
+  z-index: 20;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.subject-grid::-webkit-scrollbar,
+.chapter-grid::-webkit-scrollbar,
+.topic-grid::-webkit-scrollbar,
+.chapter-page-grid::-webkit-scrollbar,
+.topic-page-grid::-webkit-scrollbar,
+.smart-table-wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.subject-grid::-webkit-scrollbar-track,
+.chapter-grid::-webkit-scrollbar-track,
+.topic-grid::-webkit-scrollbar-track,
+.chapter-page-grid::-webkit-scrollbar-track,
+.topic-page-grid::-webkit-scrollbar-track,
+.smart-table-wrapper::-webkit-scrollbar-track {
+  background: #fff7ed;
+  border-radius: 10px;
+}
+
+.subject-grid::-webkit-scrollbar-thumb,
+.chapter-grid::-webkit-scrollbar-thumb,
+.topic-grid::-webkit-scrollbar-thumb,
+.chapter-page-grid::-webkit-scrollbar-thumb,
+.topic-page-grid::-webkit-scrollbar-thumb,
+.smart-table-wrapper::-webkit-scrollbar-thumb {
+  background: #fb923c;
+  border-radius: 10px;
+}
+
+.subject-grid::-webkit-scrollbar-thumb:hover,
+.chapter-grid::-webkit-scrollbar-thumb:hover,
+.topic-grid::-webkit-scrollbar-thumb:hover,
+.chapter-page-grid::-webkit-scrollbar-thumb:hover,
+.topic-page-grid::-webkit-scrollbar-thumb:hover,
+.smart-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #ea580c;
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .list-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .view-toggle-box {
+    width: fit-content;
+  }
+
+  .subject-grid,
+  .chapter-grid,
+  .topic-grid,
+  .chapter-page-grid,
+  .topic-page-grid {
+    grid-template-columns: 1fr;
+    max-height: none;
+  }
+
+  .smart-table {
+    min-width: 580px;
+  }
+
+  .card-main-click {
+    min-height: 110px;
+  }
+}

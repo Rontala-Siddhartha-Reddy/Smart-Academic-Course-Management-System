@@ -1,0 +1,81 @@
+.name-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.name-modal-card {
+  width: 420px;
+  max-width: 90%;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
+  border: 1px solid #fed7aa;
+}
+
+.name-modal-card h2 {
+  margin: 0 0 20px;
+  color: #0f172a;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.name-modal-card label {
+  display: block;
+  margin-bottom: 8px;
+  color: #f97316;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.name-modal-card input {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #fdba74;
+  border-radius: 14px;
+  padding: 0 14px;
+  font-size: 16px;
+  outline: none;
+  color: #0f172a;
+  box-sizing: border-box;
+}
+
+.name-modal-card input:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15);
+}
+
+.name-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.modal-cancel,
+.modal-save {
+  border: none;
+  border-radius: 14px;
+  padding: 12px 22px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.modal-cancel {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.modal-save {
+  background: #f97316;
+  color: #ffffff;
+}
+
+.modal-save:hover {
+  background: #ea580c;
+}
